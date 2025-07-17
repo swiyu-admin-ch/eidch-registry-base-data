@@ -18,7 +18,7 @@ The Base registry contains the ability to create and update DIDs required in the
 - [Overview](#Overview)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Known Issues](#known-issues]
+- [Missing Features and Known Issues](#missing-features-and-known-issues]
 - [Contributions and feedback](#contributions-and-feedback)
 - [License](#license)
 
@@ -77,9 +77,9 @@ serviceBaseRegistryData -u-> baseRegistryDataDidStore : use
 @enduml
 ```
 
-## Known Issues
+## Missing Features and Known Issues
 
-The swiyu Public Beta Trust Infrastructure was deliberately released at an early stage to enable future ecosystem participants. There may still be minor bugs or security vulnerabilities in the test system. We will publish them in the near future as ‘KnownIssues’ in this repository.
+The swiyu Public Beta Trust Infrastructure was deliberately released at an early stage to enable future ecosystem participants. The [feature roadmap](https://github.com/orgs/swiyu-admin-ch/projects/1/views/7) shows the current discrepancies between Public Beta and the targeted productive Trust Infrastructure. There may still be minor bugs or security vulnerabilities in the test system. These are marked as [‘KnownIssues’](../../issues) in each repository.
 
 ## Contributions and feedback
 
