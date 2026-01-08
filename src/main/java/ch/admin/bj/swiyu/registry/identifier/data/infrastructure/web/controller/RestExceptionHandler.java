@@ -10,6 +10,7 @@ import ch.admin.bj.swiyu.registry.identifier.data.api.ApiErrorDto;
 import ch.admin.bj.swiyu.registry.identifier.data.common.exception.ResourceNotFoundException;
 import ch.admin.bj.swiyu.registry.identifier.data.common.exception.ResourceNotReadyException;
 import jakarta.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -20,17 +21,15 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.io.IOException;
-
-
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
 @Slf4j
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiErrorDto> handleResourceNotFoundException(
-            final ResourceNotFoundException exception,
-            final HttpServletRequest request
+        final ResourceNotFoundException exception,
+        final HttpServletRequest request
     ) {
         var apiError = new ApiErrorDto(HttpStatus.NOT_FOUND, exception.getMessage());
         log.trace("Resource not found for URL {}", request.getRequestURI());
@@ -39,8 +38,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ResourceNotReadyException.class)
     public ResponseEntity<ApiErrorDto> handleResourceNotReadyException(
-            final ResourceNotReadyException exception,
-            final HttpServletRequest request
+        final ResourceNotReadyException exception,
+        final HttpServletRequest request
     ) {
         var error = new ApiErrorDto(HttpStatus.TOO_EARLY, exception.getMessage());
         log.trace("Resource not ready for URL {}", request.getRequestURI());

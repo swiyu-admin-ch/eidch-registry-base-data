@@ -7,14 +7,14 @@
 package ch.admin.bj.swiyu.registry.identifier.data.domain.datastore;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-
 import java.util.UUID;
+import lombok.Getter;
 
 @Entity
 @Getter
 @Table(name = "datastore_entity")
 public class DatastoreEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

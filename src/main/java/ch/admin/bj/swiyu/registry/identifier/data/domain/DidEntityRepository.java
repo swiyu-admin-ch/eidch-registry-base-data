@@ -6,11 +6,10 @@
 
 package ch.admin.bj.swiyu.registry.identifier.data.domain;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DidEntityRepository extends JpaRepository<DidEntity, Long> {
     List<DidEntity> findByBase_Id(UUID baseId);

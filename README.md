@@ -18,7 +18,6 @@ The Base registry contains the ability to create and update DIDs required in the
 - [Overview](#Overview)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Missing Features and Known Issues](#missing-features-and-known-issues]
 - [Contributions and feedback](#contributions-and-feedback)
 - [License](#license)
 
@@ -39,7 +38,8 @@ A datastore service always includes 2 sub services:
 ## Installation
 
 > [!NOTE]
-> Starting the service with the local profile does not connect the data and authoring services. It only serves to start this service locally.
+> Starting the service with the local profile does not connect the data and authoring services. It only serves to start
+> this service locally.
 
 To install docker please follow the instructions on the respective pages.
 
@@ -50,6 +50,15 @@ In order to start the service locally, run:
 ```
 
 The openapi definition can then be found [here](http://localhost:8190/swagger-ui.html)
+
+Note: if you want to run the application alongside with the other services of SWIYU, you can run
+
+```shell
+./mvnw spring-boot:run -Dspring-boot.run.profiles=local,shared
+```
+
+This will assume that the authoring service was already started the same way (which provides the DB at port 5180 via
+its docker-compose config).
 
 ## Usage
 
@@ -77,13 +86,12 @@ serviceBaseRegistryData -u-> baseRegistryDataDidStore : use
 @enduml
 ```
 
-## Missing Features and Known Issues
-
-The swiyu Public Beta Trust Infrastructure was deliberately released at an early stage to enable future ecosystem participants. The [feature roadmap](https://github.com/orgs/swiyu-admin-ch/projects/1/views/7) shows the current discrepancies between Public Beta and the targeted productive Trust Infrastructure. There may still be minor bugs or security vulnerabilities in the test system. These are marked as [‘KnownIssues’](../../issues) in each repository.
-
 ## Contributions and feedback
 
-The code for this repository is developed privately and will be released after each sprint. The published code can therefore only be a snapshot of the current development and not a thoroughly tested version. However, we welcome any feedback on the code regarding both the implementation and security aspects. Please follow the guidelines for contributing found in [CONTRIBUTING.md](/CONTRIBUTING.md).
+The code for this repository is developed privately and will be released after each sprint. The published code can
+therefore only be a snapshot of the current development and not a thoroughly tested version. However, we welcome any
+feedback on the code regarding both the implementation and security aspects. Please follow the guidelines for
+contributing found in [CONTRIBUTING.md](/CONTRIBUTING.md).
 
 ## License
 

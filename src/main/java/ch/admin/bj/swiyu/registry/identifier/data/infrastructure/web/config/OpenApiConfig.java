@@ -7,7 +7,6 @@
 package ch.admin.bj.swiyu.registry.identifier.data.infrastructure.web.config;
 
 import ch.admin.bj.swiyu.registry.identifier.data.Application;
-import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import lombok.RequiredArgsConstructor;
@@ -24,18 +23,17 @@ public class OpenApiConfig {
 
     @Bean
     public OpenAPI openApi() {
-        return new OpenAPI().info(new Info()
-                        .title("Identifier Registry Data Service")
-                        .description("APIs for the Identifier Registry Data Services")
-                        .version(buildProperties.getVersion()))
-                .externalDocs(new ExternalDocumentation());
+        return new OpenAPI()
+            .info(
+                new Info()
+                    .title("Identifier Registry Data Service")
+                    .description("IF-003 - APIs for the Identifier Registry Data Services")
+                    .version(buildProperties.getVersion())
+            );
     }
 
     @Bean
     GroupedOpenApi api() {
-        return GroupedOpenApi.builder()
-                .group("API")
-                .packagesToScan(Application.class.getPackageName())
-                .build();
+        return GroupedOpenApi.builder().group("API").packagesToScan(Application.class.getPackageName()).build();
     }
 }

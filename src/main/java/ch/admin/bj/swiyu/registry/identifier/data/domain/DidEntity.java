@@ -14,16 +14,14 @@ import lombok.Getter;
 @Entity
 @Table(name = "did_entity")
 public class DidEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(
-            name = "base_id",
-            referencedColumnName = "id"
-    )
+    @JoinColumn(name = "base_id", referencedColumnName = "id")
     private DatastoreEntity base;
 
     @Column(name = "file_type")
